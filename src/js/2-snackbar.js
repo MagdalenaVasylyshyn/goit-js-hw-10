@@ -5,10 +5,12 @@ const form = document.querySelector(".form");
 const delayInput = form.querySelector(".js-delay");
 
 let settled;
+let settledBtn;
 
 form.addEventListener('click', (event) => {
     if (event.target.type === "radio") {
         settled = event.target.value;
+        settledBtn = event.target;
     }
 });
 
@@ -24,6 +26,9 @@ form.addEventListener('submit', (event) => {
             reject(delay);
             break;
     }
+    
+    delayInput.value = '';
+    settledBtn.checked = false;
 
 });
 
